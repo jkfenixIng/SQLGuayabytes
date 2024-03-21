@@ -110,7 +110,7 @@ CREATE TABLE ConfigGlobal (
 	Value NVARCHAR(100) NOT NULL
 );
 -- -----------------------------------------------------
--- Table Logs
+-- Table Acciones 
 -- -----------------------------------------------------
 CREATE TABLE Acciones (
     Id INT PRIMARY KEY IDENTITY,
