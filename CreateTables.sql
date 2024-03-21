@@ -82,6 +82,7 @@ CREATE TABLE UserInventory (
     IdUserInventory INT NOT NULL IDENTITY(1,1),
     UserId INT NULL, -- Cambié el nombre de la columna a 'UserId'
     IdItem INT NULL,
+	Active TINYINT NULL,
     PRIMARY KEY (IdUserInventory),
     CONSTRAINT FK_UserInventory_Users FOREIGN KEY (UserId)
     REFERENCES Users (IdUser),
