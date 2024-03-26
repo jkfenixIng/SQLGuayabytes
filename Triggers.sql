@@ -42,3 +42,19 @@ BEGIN
         );
     END;
 END;
+-- -----------------------------------------------------
+-- Trigger que asigna la imagen de avatar por defecto al crearse el usuario
+-- -----------------------------------------------------
+CREATE TRIGGER trg_AfterInsertUser
+ON Users
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @UserId INT;
+
+    SELECT @UserId = IdUser FROM inserted;
+
+    -- Insertar un nuevo registro en UserInventory para el nuevo usuario con IdItem igual a 1
+    INSERT INTO UserInventory (IdUser, IdItem, Active)
+    VALUES (@UserId, 1, 1); -- El valor de Active se establece en 1 (activo)
+END;
