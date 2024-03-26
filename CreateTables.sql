@@ -75,15 +75,16 @@ CREATE TABLE Items (
     REFERENCES ItemsCategories (IdItemsCategories)
 );
 
--- -----------------------------------------------------
+-- ----------------------------------------------------- 
 -- Table UserInventory
 -- -----------------------------------------------------
 CREATE TABLE UserInventory (
     IdUserInventory INT NOT NULL IDENTITY(1,1),
-    UserId INT NULL, -- Cambié el nombre de la columna a 'UserId'
+    IdUser INT NULL, 
     IdItem INT NULL,
+	Active TINYINT NULL,
     PRIMARY KEY (IdUserInventory),
-    CONSTRAINT FK_UserInventory_Users FOREIGN KEY (UserId)
+    CONSTRAINT FK_UserInventory_Users FOREIGN KEY (IdUser)
     REFERENCES Users (IdUser),
     CONSTRAINT FK_UserInventory_Items FOREIGN KEY (IdItem)
     REFERENCES Items (IdItem)
