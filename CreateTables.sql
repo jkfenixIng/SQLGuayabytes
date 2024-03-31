@@ -25,16 +25,26 @@ CREATE TABLE GameTypes (
     MinimumBet INT NULL,
     PRIMARY KEY (IdGameType)
 );
-
+-- -----------------------------------------------------
+-- Table Game Modes
+-- -----------------------------------------------------
+CREATE TABLE GameModes (
+    IdGameMode INT NOT NULL IDENTITY(1,1),
+    GameMode NVARCHAR(MAX),
+    PRIMARY KEY (IdGameMode),
+);
 -- -----------------------------------------------------
 -- Table Games
 -- -----------------------------------------------------
 CREATE TABLE Games (
     IdGame INT NOT NULL IDENTITY(1,1),
     IdGameType INT NULL,
+	IdGameMode INT NOT NULL,
     PRIMARY KEY (IdGame),
     CONSTRAINT fk_Plays_GameTypes FOREIGN KEY (IdGameType)
-    REFERENCES GameTypes (IdGameType)
+    REFERENCES GameTypes (IdGameType),
+	CONSTRAINT fk_Plays_GameModes FOREIGN KEY (IdGameMode)
+    REFERENCES GameModes (IdGameMode)
 );
 
 -- -----------------------------------------------------
