@@ -22,3 +22,7 @@ INSERT INTO [dbo].[GameTypes]
 			  ('Rapida 1 Dado',1,2000,4,200),
 			  ('Rapida 2 Dados',2,2000,4,200)
 GO
+-- ===================================================
+INSERT INTO GameModes (GameMode)
+VALUES ('Cooperativo');
+		
